@@ -1,50 +1,60 @@
 public class EstrellaSolar {
 
-    /** velocidad de caeda procesador*/
-	private float velocidad;
-    /** nucleos l�gicos del micro*/
-    private int nucleos;
-    /** modelo */
-    private String modelo;
+    /** Atributos de una Estrella del Sistema Solar*/
+	private String nombreEstrella;
+    private Integer radioEcuato;
+    private Integer temperaturaNucleo;
+    private Integer distanciaTierra;
      
      /**
-        * Constructor de clase
-        * @param velocidad
-        * @param nucleos
-        * @param modelo
-        * @param fabricante
+        * Constructor de clase la EstrellaSolar
+        * @param nombreEstrella
+        * @param radioEcuato
+        * @param temperaturaNucleo
+        * @param distanciaTierra
     */    
         
-    public EstrellaSolar(float velocidad, int nucleos, String modelo, String fabricante) {
+    public EstrellaSolar(String nombreEstrella, Integer radioEcuato, Integer temperaturaNucleo, Integer distanciaTierra) {
             
-        this.velocidad = velocidad;
-        this.nucleos = nucleos;
-        this.modelo = modelo;
+        this.nombreEstrella = nombreEstrella;
+        this.radioEcuato = radioEcuato;
+        this.temperaturaNucleo = temperaturaNucleo;
+        this.distanciaTierra = distanciaTierra;
+
     }
     
-    public int getNucleos() {
-        return nucleos;
+    public String getNameStar() {
+        return nombreEstrella;
     }
     
-    public void setNucleos(int nucleos) {
-        this.nucleos = nucleos;
-    }
-    
-     public String getModelo() {
-        return modelo;
-    }
-    
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setNameStar(String nombreEstrella) {
+        this.nombreEstrella = nombreEstrella;
     }
 
-    public float getVelocidad() {
-        return velocidad;
+    public float getEquatorRadius() {
+        return radioEcuato;
     }
     
-    public void setVelocidad(float velocidad) {
-        this.velocidad = velocidad;
+    public void setEquatorRadius(Integer radioEcuato) {
+        this.radioEcuato = radioEcuato;
     }
+
+    public float getCoreTemp() {
+        return temperaturaNucleo;
+    }
+    
+    public void setCoreTemp(Integer temperaturaNucleo) {
+        this.temperaturaNucleo = temperaturaNucleo;
+    }
+
+    public float getDistanceEarth() {
+        return distanciaTierra;
+    }
+    
+    public void setDistanceEarth(Integer distanciaTierra) {
+        this.distanciaTierra = distanciaTierra;
+    }
+    
     
 }
 

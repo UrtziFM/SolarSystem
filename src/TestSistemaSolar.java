@@ -1,5 +1,8 @@
 public class TestSistemaSolar {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        //Creamos el Sistema Solar
+		SistemaSolar system= new SistemaSolar();
+		system.bigBang();	
     }
 }
