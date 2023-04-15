@@ -22,6 +22,8 @@ public class EstrellaSolar {
         this.distanciaTierra = distanciaTierra;
 
     }
+
+    /** Definimos los metodos get y set para la clase */
     
     public String getNameStar() {
         return nombreEstrella;
@@ -31,7 +33,7 @@ public class EstrellaSolar {
         this.nombreEstrella = nombreEstrella;
     }
 
-    public float getEquatorRadius() {
+    public Integer getEquatorRadius() {
         return radioEcuato;
     }
     
@@ -39,7 +41,7 @@ public class EstrellaSolar {
         this.radioEcuato = radioEcuato;
     }
 
-    public float getCoreTemp() {
+    public Integer getCoreTemp() {
         return temperaturaNucleo;
     }
     
@@ -47,7 +49,7 @@ public class EstrellaSolar {
         this.temperaturaNucleo = temperaturaNucleo;
     }
 
-    public float getDistanceEarth() {
+    public Integer getDistanceEarth() {
         return distanciaTierra;
     }
     

@@ -1,24 +1,74 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class SistemaSolar {
     
-    /**Construimos la clase con la estructura de la agregación fuerte */
-    EstrellaSolar star;
+    /**Construimos las clases con la estructura de la agregación fuerte */
+    EstrellaSolar starSun;
+    private List<PlanetaSolar> innerPlanets;
+    private List<PlanetaSolar> outerPlanets;
+    private List<SateliteSolar> selectedSatelites;
 
-    /**
-	 * Constructor del Sistema Solar
-	 * @param star
-	 */
+    /** Constructor del Sistema Solar */
 
     public SistemaSolar(){
-        // Instanciamos los objetos desde las clases:
-		EstrellaSolar star= new EstrellaSolar("Sol", 700000, 15000000, 149600000);
-        
-        this.star = star;
+       bigBang();
     }
 
     public void bigBang(){
-        // Creamos el sol
-        System.out.println("La estrella del Sistema solar se llama "+ star.getNameStar()+" tiene el siguiente radio Ecuatorial "+ 
-        star.getEquatorRadius());
+
+        // Creamos el sol instanciando el objeto desde la clase EstrellaSolar
+        starSun = new EstrellaSolar("Sol", 700, 15000, 149600);
+        
+        // Creamos los planetas interiores desde la clase PlanetaSolar y los añadimos a un objeto lista (los datos estan normalizados en miles)
+        innerPlanets = new ArrayList<>();
+        innerPlanets.add(new PlanetaSolar("Mercurio", 0,2.439, 700.15,91700, 57900, null));
+        innerPlanets.add(new PlanetaSolar("Venus", 0,6.052, 243.15, 41400, 108200, null));
+        innerPlanets.add(new PlanetaSolar("Tierra", 1, 6.378, 289.00, 0, 149600, null));
+        innerPlanets.add(new PlanetaSolar("Marte", 2, 3.396, 293.15, 78400, 227940, null));
+        
+        // Creamos los planetas exteriores desde la clase PlanetaSolar y los añadimos a un objeto lista (los datos estan normalizados en miles
+        outerPlanets = new ArrayList<>();
+        outerPlanets.add(new PlanetaSolar("Jupiter", 16, 70.85, 303.15,628800, 778300, null));
+        outerPlanets.add(new PlanetaSolar("Saturno", 23, 60.00, 148.15,1277400, 1429400, null));
+        outerPlanets.add(new PlanetaSolar("Urano", 15, 25.40, 80.15,2719700, 2871000, null));
+        outerPlanets.add(new PlanetaSolar("Neptuno", 8, 24.30, 120.15,4347400, 4504300, null));
+        
+         // Creamos los satelites desde la clase SateliteSolar y los añadimos a un objeto lista (los datos estan normalizados en miles
+        selectedSatelites = new ArrayList<>();
+        selectedSatelites.add(new SateliteSolar("Luna", "Tierra", 1.7374));
+        selectedSatelites.add(new SateliteSolar("Phobos", "Marte", 0.0175));
+        selectedSatelites.add(new SateliteSolar("Deimos", "Marte", 0.0125));
+        selectedSatelites.add(new SateliteSolar("Io", "Jupiter", 1.801));
+        selectedSatelites.add(new SateliteSolar("Europa", "Jupiter", 1.569));
+        selectedSatelites.add(new SateliteSolar("Ganímedes", "Jupiter", 2.631));
+        selectedSatelites.add(new SateliteSolar("Calisto", "Jupiter", 2.400));
+        selectedSatelites.add(new SateliteSolar("Titán", "Saturno", 2.575));
+        selectedSatelites.add(new SateliteSolar("Oberón", "Urano", 0.5826));
+        selectedSatelites.add(new SateliteSolar("Titania", "Urano", 0.788));
+        selectedSatelites.add(new SateliteSolar("Umbriel", "Urano", 0.584));
+        selectedSatelites.add(new SateliteSolar("Triton", "Neptuno", 1.350));
+
+        // La captura de un Satelite por el campo gravitatorio de un Planeta se hará de la siguiente manera:
+        for (SateliteSolar satelite : selectedSatelites) {
+            for (PlanetaSolar planeta : innerPlanets) {
+                if (planeta.getNamePlanet().equals(satelite.getCatchPlanet())) {
+                    planeta.addSatelite(satelite);
+                    break;
+                    }
+                }
+            for (PlanetaSolar planeta : outerPlanets) {
+                if (planeta.getNamePlanet().equals(satelite.getCatchPlanet())) {
+                    planeta.addSatelite(satelite);
+                    break;
+                    }
+                }
+        }
+        
+    
+        for (PlanetaSolar planeta : innerPlanets) {
+            System.out.println(planeta.getSatelites());
+        }
 		
     }
 }
