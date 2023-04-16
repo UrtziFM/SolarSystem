@@ -13,9 +13,10 @@ public class SistemaSolar {
 
     public SistemaSolar(){
        bigBang();
+       biggestPlanet();
     }
 
-    public void bigBang(){
+    private void bigBang(){
 
         // Creamos el sol instanciando el objeto desde la clase EstrellaSolar
         starSun = new EstrellaSolar("Sol", 700, 15000, 149600);
@@ -65,10 +66,34 @@ public class SistemaSolar {
                 }
         }
         
-    
+        //Eliminar es prueba
         for (PlanetaSolar planeta : innerPlanets) {
             System.out.println(planeta.getSatelites());
-        }
-		
+        }	
     }
+
+    private void biggestPlanet() {
+
+        PlanetaSolar biggestPlanet = null;
+        Double maxRadiusEq = 0.0;
+
+        for(PlanetaSolar inPlanet : innerPlanets) {
+            if (inPlanet.getEquatorRadius() > maxRadiusEq) {
+                maxRadiusEq = inPlanet.getEquatorRadius();
+                biggestPlanet = inPlanet;
+            }
+        }
+
+        for(PlanetaSolar outPlanet : outerPlanets) {
+            if (outPlanet.getEquatorRadius() > maxRadiusEq) {
+                maxRadiusEq = outPlanet.getEquatorRadius();
+                biggestPlanet = outPlanet;
+            }
+        }
+
+        System.out.println("El planeta más grande del Sistema Solar o con mayor radio ecuatorial es " + biggestPlanet.getNamePlanet());
+
+    }
+
+
 }
