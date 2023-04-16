@@ -3,7 +3,7 @@ import java.util.List;
 
 public class SistemaSolar {
     
-    /**Construimos las clases con la estructura de la agregación fuerte */
+    /**Construimos las clases con la estructura de la agregación debil tal como se ha planteado en el diagrama clases */
     EstrellaSolar starSun;
     private List<PlanetaSolar> innerPlanets;
     private List<PlanetaSolar> outerPlanets;
