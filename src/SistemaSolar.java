@@ -22,6 +22,7 @@ public class SistemaSolar {
     }
 
     //La creción del sistema solar ocurre gracias al Big Bang de donde surgen sol, planetas interiores, exteriores y satelites atrapados por planetas
+    //Tanto el Big Bang como las cuestiones a resolver son privados para que no sean accesibles más que por Sistema Solar
     private void bigBang(){
 
         // Creamos el sol instanciando el objeto desde la clase EstrellaSolar
