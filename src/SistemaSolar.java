@@ -9,7 +9,7 @@ public class SistemaSolar {
     private List<PlanetaSolar> outerPlanets;
     private List<SateliteSolar> selectedSatelites;
 
-    /** Constructor del Sistema Solar */
+    /** Constructor del Sistema Solar con los metodos a los que se llamaran*/
 
     public SistemaSolar(){
        bigBang();
@@ -21,6 +21,7 @@ public class SistemaSolar {
        jupiterSatelites();
     }
 
+    //La creción del sistema solar ocurre gracias al Big Bang de donde surgen sol, planetas interiores, exteriores y satelites atrapados por planetas
     private void bigBang(){
 
         // Creamos el sol instanciando el objeto desde la clase EstrellaSolar
