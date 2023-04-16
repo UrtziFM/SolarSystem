@@ -31,7 +31,7 @@ public class SateliteSolar {
         return this.nombreSatelite;
     }
     
-    public void setNamePlanet(String nombreSatelite) {
+    public void setNameSatelite(String nombreSatelite) {
         this.nombreSatelite = nombreSatelite;
     }
 

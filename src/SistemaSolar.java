@@ -14,6 +14,11 @@ public class SistemaSolar {
     public SistemaSolar(){
        bigBang();
        biggestPlanet();
+       maxSatellitesPlanet();
+       namesPlanets();
+       furthestPlanetSun();
+       marsTemperature();
+       jupiterSatelites();
     }
 
     private void bigBang(){
@@ -65,13 +70,10 @@ public class SistemaSolar {
                     }
                 }
         }
-        
-        //Eliminar es prueba
-        for (PlanetaSolar planeta : innerPlanets) {
-            System.out.println(planeta.getSatelites());
-        }	
+        	
     }
 
+    //Metodo privado para obtener el planeta más grande
     private void biggestPlanet() {
 
         PlanetaSolar biggestPlanet = null;
@@ -91,9 +93,98 @@ public class SistemaSolar {
             }
         }
 
-        System.out.println("El planeta más grande del Sistema Solar o con mayor radio ecuatorial es " + biggestPlanet.getNamePlanet());
+        System.out.println("El planeta más grande del Sistema Solar o con mayor radio ecuatorial es " + biggestPlanet.getNamePlanet() + 
+        " y su radio ecuatorial es " + biggestPlanet.getEquatorRadius());
 
     }
 
+    //Metodo privado para obtener el planeta con el mayor número de satelites
+    private void maxSatellitesPlanet() {
+
+        PlanetaSolar maxSatellitesPlanet = null;
+        Integer maxNumberSat = 0;
+
+        for(PlanetaSolar inPlanet : innerPlanets) {
+            if (inPlanet.getNumberSatelite() > maxNumberSat) {
+                maxNumberSat = inPlanet.getNumberSatelite();
+                maxSatellitesPlanet = inPlanet;
+            }
+        }
+
+        for(PlanetaSolar outPlanet : outerPlanets) {
+            if (outPlanet.getNumberSatelite() > maxNumberSat) {
+                maxNumberSat = outPlanet.getNumberSatelite();
+                maxSatellitesPlanet = outPlanet;
+            }
+        }
+
+        System.out.println("El planeta con más satelites del Sistema Solar es " + maxSatellitesPlanet.getNamePlanet() +
+        " y tiene el siguiente número total de satelites: " + maxSatellitesPlanet.getNumberSatelite());
+
+    }
+
+    //Metodo privado para obtener los nombres de los planetas interiores y exteriores
+    private void namesPlanets() {
+        
+        System.out.println("Los nombres de los planetas del sistema solar son: ");
+
+        for (PlanetaSolar planeta : innerPlanets) {
+            System.out.println(planeta.getNamePlanet());
+        }
+
+        for (PlanetaSolar planeta : outerPlanets) {
+            System.out.println(planeta.getNamePlanet());
+        }
+    }
+
+    //Metodo privado para obtener el planeta más alejado del Sol
+    private void furthestPlanetSun() {
+
+        PlanetaSolar furthestPlanet = null;
+        Integer maxDistanceSun = 0;
+
+        for(PlanetaSolar inPlanet : innerPlanets) {
+            if (inPlanet.getDistanceSun() > maxDistanceSun) {
+                maxDistanceSun = inPlanet.getDistanceSun();
+                furthestPlanet = inPlanet;
+            }
+        }
+
+        for(PlanetaSolar outPlanet : outerPlanets) {
+            if (outPlanet.getDistanceSun() > maxDistanceSun) {
+                maxDistanceSun = outPlanet.getDistanceSun();
+                furthestPlanet = outPlanet;
+            }
+        }
+
+        System.out.println("El planeta más alejado del Sol es " + furthestPlanet.getNamePlanet() +
+        " y la distancia en 10x3 KM es: " + furthestPlanet.getDistanceSun());
+
+    }
+
+    //Metodo privado para obtener los satelites (nombres y radio) del planeta seleccionado que es Jupiter
+    private void jupiterSatelites() {
+
+        for (SateliteSolar satelite : selectedSatelites) {
+            if (satelite.getCatchPlanet().equals("Jupiter")) {
+                System.out.println("Los Satelites de Jupiter son: " + satelite.getNameSatelite() + " y su tamaño es " 
+                + satelite.getEquatorRadius() );
+                }
+            }
+
+    }
+
+
+    //Metodo privado para obtener la temperatura del planeta seleccionado que es Marte
+    private void marsTemperature() {
+
+        for (PlanetaSolar planeta : innerPlanets) {
+            if (planeta.getNamePlanet().equals("Marte")) {
+                System.out.println("La temperatura media diurna de Marte es: " + planeta.getAvgMorningTemp());
+                break;
+                }
+            }
+        
+    }
 
 }
